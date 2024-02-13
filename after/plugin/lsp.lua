@@ -17,7 +17,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {"eslint","cssls","lua_ls", "vtsls", "html", "pylsp", "clangd"},
+  ensure_installed = {"biome","cssls","lua_ls", "vtsls", "html", "pylsp", "clangd"},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()

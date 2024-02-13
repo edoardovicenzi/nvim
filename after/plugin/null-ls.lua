@@ -9,10 +9,11 @@ null_ls.setup {
             vim.api.nvim_command [[augroup END]]
         end
     end,
-    sources = {
+--[[    sources = {
         null_ls.builtins.diagnostics.eslint_d.with({
             diagnostics_format = '[eslint] #{m}\n(#{c})'
         }),
         null_ls.builtins.diagnostics.fish
     }
+]]
 }

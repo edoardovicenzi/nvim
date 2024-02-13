@@ -53,8 +53,5 @@ return require('packer').startup(function(use)
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons", -- optional, used for icons
         },
-        config = function()
-            require'mind'.setup()
-        end
     }
 end)

@@ -28,7 +28,7 @@ lualine.setup {
              },
         lualine_z = {
             {
-                'os.date("!%H:%M")', icon = {''}
+                'os.date("%H:%M")', icon = {''}
             }
         }
     },
