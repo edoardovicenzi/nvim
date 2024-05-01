@@ -1,3 +1,3 @@
 require('Edoardo.remap')
 require('Edoardo.set')
-require("Edoardo.packer")
+require("Edoardo.lazy_init")
