@@ -26,4 +26,7 @@ vim.opt.signcolumn = "yes"
 --vim.opt.updatetime = "50"
 vim.opt.colorcolumn = "80"
 
+--Vim font
+vim.opt.guifont='Fira Code'
+
 vim.g.mapleader = " "

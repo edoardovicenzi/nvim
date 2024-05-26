@@ -3,6 +3,12 @@ vim.g.mapleader = " "
 --Main remaps
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+--Diagnostics
+vim.diagnostic.config({
+    virtual_text = false
+})
+vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float(nil, {focus=false}) end, {desc = "Show diagnostic"})
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", {desc = "Move selected block down"})
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", {desc = "Move selected block up"})
 
