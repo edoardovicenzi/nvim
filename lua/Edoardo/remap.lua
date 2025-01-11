@@ -34,9 +34,6 @@ vim.keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab"
 vim.keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
 
--- LSP diagnostic
-vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float(nil, { focus = false }) end,
-  { desc = "Show diagnostic" })
 --Oil.nvim
 
 vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>", { desc = "Open parent directory" })

@@ -19,22 +19,13 @@ return {
       -- Setup servers
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      -- lsp declarations (add servers here)
-      local lspconfig = require("lspconfig")
-      local util = require("lspconfig.util")
-
-      lspconfig.lua_ls.setup({
+      -- lsp declarations
+      require("lspconfig").lua_ls.setup {
         capabilities = capabilities
-      })
-      lspconfig.biome.setup({
-        capabilities = capabilities,
-        root_dir = function(fname)
-          return util.root_pattern("biome.json", "biome.jsonc")(fname)
-              or util.find_package_json_ancestor(fname)
-              or util.find_node_modules_ancestor(fname)
-              or util.find_git_ancestor(fname)
-        end
-      })
+      }
+      require("lspconfig").biome.setup {
+        capabilities = capabilities
+      }
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
@@ -55,9 +46,9 @@ return {
           local opts = { buffer = args.buf }
           vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-          vim.keymap.set('n', 'gK', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
           vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-          vim.keymap.set('n', 'gk', vim.lsp.buf.signature_help, opts)
+          -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
           -- vim.keymap.set('n', '<space>la', vim.lsp.buf.add_workspace_folder, opts)
           -- vim.keymap.set('n', '<space>lr', vim.lsp.buf.remove_workspace_folder, opts)
           -- vim.keymap.set('n', '<space>ll', function()
