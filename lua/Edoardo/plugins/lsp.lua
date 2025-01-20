@@ -18,11 +18,11 @@ return {
     config = function()
       -- Setup servers
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-
       -- lsp declarations (add servers here)
       local lspconfig = require("lspconfig")
       local util = require("lspconfig.util")
 
+      -- START OF LSPs DECLARATION
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
@@ -35,6 +35,7 @@ return {
               or util.find_git_ancestor(fname)
         end
       })
+      -- END OF LSPs DECLARATION
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
