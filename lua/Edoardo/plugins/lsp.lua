@@ -41,6 +41,9 @@ return {
       -- PHP
       lspconfig.intelephense.setup({
         capabilities = capabilities,
+        root_dir = function()
+          return vim.loop.cwd()
+        end,
       })
       -- END OF LSPs DECLARATION
 
