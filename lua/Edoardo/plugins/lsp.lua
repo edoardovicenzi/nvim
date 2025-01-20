@@ -23,9 +23,12 @@ return {
       local util = require("lspconfig.util")
 
       -- START OF LSPs DECLARATION
+
+      -- LUA
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+      -- JS, React, html, css
       lspconfig.biome.setup({
         capabilities = capabilities,
         root_dir = function(fname)
@@ -34,6 +37,10 @@ return {
               or util.find_node_modules_ancestor(fname)
               or util.find_git_ancestor(fname)
         end
+      })
+      -- PHP
+      lspconfig.intelephense.setup({
+        capabilities = capabilities,
       })
       -- END OF LSPs DECLARATION
 
