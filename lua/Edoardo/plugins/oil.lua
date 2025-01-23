@@ -14,8 +14,19 @@ return {
         view_options = {
           show_hidden = true,
           is_always_hidden = function(name, bufnr)
-            local m = name:match("^node_modules")
-            return m ~= nil
+            local m = false
+            local patterns = {
+              "^node_modules",
+              "^.vs",
+              "^.svn",
+              "^.git"
+            }
+            for _, pattern in pairs(patterns) do
+              if name:match(pattern) then
+                return true
+              end
+            end
+            return false
           end
         }
       })
