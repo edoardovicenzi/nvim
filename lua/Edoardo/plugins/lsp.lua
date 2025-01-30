@@ -45,6 +45,10 @@ return {
           return vim.loop.cwd()
         end,
       })
+      -- Rust
+      lspconfig.rust_analyzer.setup({
+
+      })
       -- END OF LSPs DECLARATION
 
       vim.api.nvim_create_autocmd('LspAttach', {

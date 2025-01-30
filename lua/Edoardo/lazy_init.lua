@@ -16,7 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  install = { colorscheme = { "rose-pine" } },
+  install = { colorscheme = { "catppuccin-mocha" } },
   spec = {
     { import = "Edoardo.plugins" },
     { import = "Edoardo.plugins.lsp" },

@@ -1,18 +1,19 @@
+local defaultColor = "catppuccin-mocha"
 function MyColorPencil(color)
-  color = color or "rose-pine"
+  color = color or defaultColor
   vim.cmd.colorscheme(color)
+  vim.cmd('highlight Normal guibg=none')
 end
 
 return {
-  "rose-pine/neovim",
-  name = "rose-pine",
+  "catppuccin/nvim",
+  name = "catppuccin",
+  priority = 1000,
   config = function()
-    require('rose-pine').setup({
-      styles = {
-        italic = false,
-      }
+    require("catppuccin").setup({
+      flavour = "mocha",
+      no_italic = true
     })
-    vim.cmd('colorscheme rose-pine')
     MyColorPencil()
   end
 }
