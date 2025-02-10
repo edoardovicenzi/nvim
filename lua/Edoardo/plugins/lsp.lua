@@ -3,6 +3,7 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       "saghen/blink.cmp",
+      "nvim-java/nvim-java",
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -47,7 +48,10 @@ return {
       })
       -- Rust
       lspconfig.rust_analyzer.setup({
-
+        capabilities = capabilities
+      })
+      -- Java
+      lspconfig.jdtls.setup({
       })
       -- END OF LSPs DECLARATION
 
