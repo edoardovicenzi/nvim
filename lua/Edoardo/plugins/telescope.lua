@@ -33,8 +33,9 @@ return {
 
     telescope.setup({
       defaults = {
-        file_ignore_patterns = { "node%_modules/.*", "vs/.*", "svn/.*", "git/.*" },
+        file_ignore_patterns = { "node_modules", "vs/.*", "svn/.*", "git/.*" },
         path_display = { "smart" },
+        layout_strategy = 'vertical',
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
