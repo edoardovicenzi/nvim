@@ -30,14 +30,17 @@ return {
         capabilities = capabilities
       })
       -- JS, React, html, css
-      lspconfig.biome.setup({
+      -- lspconfig.biome.setup({
+      --   capabilities = capabilities,
+      --   root_dir = function(fname)
+      --     return util.root_pattern("biome.json", "biome.jsonc")(fname)
+      --         or util.find_package_json_ancestor(fname)
+      --         or util.find_node_modules_ancestor(fname)
+      --         or util.find_git_ancestor(fname)
+      --   end
+      -- })
+      lspconfig.ts_ls.setup({
         capabilities = capabilities,
-        root_dir = function(fname)
-          return util.root_pattern("biome.json", "biome.jsonc")(fname)
-              or util.find_package_json_ancestor(fname)
-              or util.find_node_modules_ancestor(fname)
-              or util.find_git_ancestor(fname)
-        end
       })
       -- PHP
       lspconfig.intelephense.setup({
