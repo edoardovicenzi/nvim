@@ -13,17 +13,17 @@ return {
   --   them entirely:
   keys = {
     {
-      '<Leader>dv',
+      '<Leader>fdv',
       ':Telescope telescope_docker docker_volumes<CR>',
       desc = '[D]ocker [V]olumes',
     },
     {
-      '<Leader>di',
+      '<Leader>fdi',
       ':Telescope telescope_docker docker_images<CR>',
       desc = '[D]ocker [I]mages',
     },
     {
-      '<Leader>dp',
+      '<Leader>fdp',
       ':Telescope telescope_docker docker_ps<CR>',
       desc = '[D]ocker [P]rocesses',
     },

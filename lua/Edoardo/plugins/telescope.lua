@@ -33,8 +33,9 @@ return {
 
     telescope.setup({
       defaults = {
-        file_ignore_patterns = { "node%_modules/.*", "vs/.*", "svn/.*", "git/.*" },
+        file_ignore_patterns = { "node_modules", "vs/.*", "svn/.*", "git/.*" },
         path_display = { "smart" },
+        layout_strategy = 'vertical',
         mappings = {
           i = {
             ["<C-k>"] = actions.move_selection_previous, -- move to prev result
@@ -48,6 +49,7 @@ return {
     vim.keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
     vim.keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    vim.keymap.set("n", "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Find string in buffer" })
     vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
   end
 }
