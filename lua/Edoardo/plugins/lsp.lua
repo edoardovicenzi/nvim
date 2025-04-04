@@ -22,6 +22,14 @@ return {
       -- lsp declarations (add servers here)
       local lspconfig = require("lspconfig")
       local util = require("lspconfig.util")
+      local os_name
+      if vim.fn.has("win32") == 1 then
+        os_name = "windows"
+      elseif vim.fn.has("mac") == 1 then
+        os_name = "macos"
+      else
+        os_name = "linux"
+      end
 
       -- START OF LSPs DECLARATION
 
@@ -30,15 +38,6 @@ return {
         capabilities = capabilities
       })
       -- JS, React, html, css
-      -- lspconfig.biome.setup({
-      --   capabilities = capabilities,
-      --   root_dir = function(fname)
-      --     return util.root_pattern("biome.json", "biome.jsonc")(fname)
-      --         or util.find_package_json_ancestor(fname)
-      --         or util.find_node_modules_ancestor(fname)
-      --         or util.find_git_ancestor(fname)
-      --   end
-      -- })
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
@@ -55,6 +54,60 @@ return {
       })
       -- Java
       lspconfig.jdtls.setup({
+      })
+      -- VB, C# dotnet
+      -- Setup omnicharp cmd
+      local pid = vim.fn.getpid()
+
+      local omnisharp_bin
+      if os_name == "windows" then
+        omnisharp_bin = "C:\\Users\\VCNDRD98R\\omnisharp\\OmniSharp.exe"
+      elseif os_name == "macos" then
+        omnisharp_bin = ""
+      elseif os_name == "linux" then
+      end
+
+      lspconfig.omnisharp.setup({
+        cmd = { omnisharp_bin, "--languageserver", "--hostPID", tostring(pid) },
+        -- cmd = { "dotnet", "/path/to/omnisharp/OmniSharp.dll" },
+        settings = {
+          FormattingOptions = {
+            -- Enables support for reading code style, naming convention and analyzer
+            -- settings from .editorconfig.
+            EnableEditorConfigSupport = true,
+            -- Specifies whether 'using' directives should be grouped and sorted during
+            -- document formatting.
+            OrganizeImports = nil,
+          },
+          MsBuild = {
+            -- If true, MSBuild project system will only load projects for files that
+            -- were opened in the editor. This setting is useful for big C# codebases
+            -- and allows for faster initialization of code navigation features only
+            -- for projects that are relevant to code that is being edited. With this
+            -- setting enabled OmniSharp may load fewer projects and may thus display
+            -- incomplete reference lists for symbols.
+            LoadProjectsOnDemand = nil,
+          },
+          RoslynExtensionsOptions = {
+            -- Enables support for roslyn analyzers, code fixes and rulesets.
+            EnableAnalyzersSupport = nil,
+            -- Enables support for showing unimported types and unimported extension
+            -- methods in completion lists. When committed, the appropriate using
+            -- directive will be added at the top of the current file. This option can
+            -- have a negative impact on initial completion responsiveness,
+            -- particularly for the first few completion sessions after opening a
+            -- solution.
+            EnableImportCompletion = nil,
+            -- Only run analyzers against open files when 'enableRoslynAnalyzers' is
+            -- true
+            AnalyzeOpenDocumentsOnly = nil,
+          },
+          Sdk = {
+            -- Specifies whether to include preview versions of the .NET SDK when
+            -- determining which version to use for project loading.
+            IncludePrereleases = true,
+          },
+        },
       })
       -- END OF LSPs DECLARATION
 
