@@ -44,7 +44,6 @@ vim.keymap.set("n", "<leader>oo", "<CMD>Oil<CR>", { desc = "Open parent director
 --QuickFix
 -- (<C-q> in telescope)
 
-
 vim.keymap.set("n", "<M-j>", "<cmd>cnext<CR>", { desc = "QuickFix next item." })
 vim.keymap.set("n", "<M-k>", "<cmd>cprev<CR>", { desc = "QuickFix previous item." })
 vim.keymap.set("n", "<M-o>", "<cmd>copen<CR>", { desc = "Open QuickFix." })
