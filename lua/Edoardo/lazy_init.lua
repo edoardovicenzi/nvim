@@ -19,8 +19,6 @@ require("lazy").setup({
   install = { colorscheme = { "catppuccin-mocha" } },
   spec = {
     { import = "Edoardo.plugins" },
-    { import = "Edoardo.plugins.lsp" },
-
   },
   checker = {
     enabled = true,
