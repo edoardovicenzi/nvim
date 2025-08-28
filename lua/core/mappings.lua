@@ -63,6 +63,7 @@ M.general = {
     ["<leader>sh"] = { "<C-w>s", "Split window horizontally" },
     ["<leader>se"] = { "<C-w>=", "Make splits equal size" },
     ["<leader>sx"] = { "<cmd>close<CR>", "Close current split" },
+    ["<leader>p"] = { '[["+p]]', "Paste from the system registry" },
   },
 
   t = {
@@ -78,6 +79,7 @@ M.general = {
     ["J"] = {":m '>+1<CR>gv=gv","Move selected block down" },
     ["K"] = {":m '<-2<CR>gv=gv", "Move selected block up" },
     ["<leader>y"] = { [["+y]], "Yank selection  to the system register" },
+    ["<leader>p"] = { '[["+p]]', "Paste from the system registry" },
   },
 
   x = {
@@ -87,7 +89,7 @@ M.general = {
     -- https://vim.fandom.com/wiki/Replace_a_word_with_yanked_text#Alternative_mapping_for_paste
     ["p"] = { 'p:let @+=@0<CR>:let @"=@0<CR>', "Dont copy replaced text", opts = { silent = true } },
     -- custom
-    ["<leader>pp"] = { '[["_dP]]', "Put deleted selection in void register" },
+    ["<leader>ux"] = { '[["_dP]]', "Put deleted selection in void register" },
   },
 }
 
@@ -296,11 +298,11 @@ M.telescope = {
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    ["<leader>gc"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    ["<leader>gs"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    ["<leader>tt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
@@ -452,14 +454,14 @@ M.gitsigns = {
     },
 
     -- Actions
-    ["<leader>rh"] = {
+    ["<leader>gr"] = {
       function()
         require("gitsigns").reset_hunk()
       end,
       "Reset hunk",
     },
 
-    ["<leader>ph"] = {
+    ["<leader>gh"] = {
       function()
         require("gitsigns").preview_hunk()
       end,
@@ -473,7 +475,7 @@ M.gitsigns = {
       "Blame line",
     },
 
-    ["<leader>td"] = {
+    ["<leader>gd"] = {
       function()
         require("gitsigns").toggle_deleted()
       end,
